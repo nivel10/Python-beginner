@@ -17,3 +17,8 @@ print(bool(-1))
 print(bool(" "))
 print(bool(""))
 print(bool("False"))
+
+print(round(2.5))
+print(round(3.5))
+print(round(4.5))
+print(round(5.5))

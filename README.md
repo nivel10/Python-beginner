@@ -5,3 +5,4 @@
 * 01 - print
 * 02 - types
 * 03 - cast
+* 04 - variables
