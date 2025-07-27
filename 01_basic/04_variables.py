@@ -30,3 +30,12 @@ print(f"name: {my_name}; age: {my_age}; age (two): {my_age_two}" )
 # consts - set define on upper case
 MY_CONST = 3.146
 
+# variable types
+# variables is dinamics and hard, but not static
+# variable type anotations
+
+is_user_logged_in: bool = True
+print(is_user_logged_in)
+
+is_user_logged_in = 24
+print(is_user_logged_in)

@@ -6,3 +6,4 @@
 * 02 - types
 * 03 - cast
 * 04 - variables
+* 05 - input
