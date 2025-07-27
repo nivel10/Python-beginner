@@ -11,6 +11,7 @@ msg_not_legal_age: str = "You are not legal age"
 msg_congratulations: str = "Congratulations...!!!"
 msg_sorry: str = "Sorry :/"
 msg_carrie_return: str = " "
+msg_final: str = ""
 is_weekend: bool = False
 have_money: bool = True
 
@@ -102,3 +103,8 @@ if current_name:
 
 if not current_name_two:
     print(f"Variable current_name_two is empty: {current_name_two}")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+msg_final = f"{msg_legal_age}: {my_age}. {msg_congratulations}" if my_age >= 18 else f"{msg_not_legal_age}: {my_age}. {msg_sorry}"
+print(msg_final)
