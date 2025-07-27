@@ -12,3 +12,4 @@
 * 01 - if
 * 02 - booleans
 * 03 - list
+* 04 - list_methods

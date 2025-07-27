@@ -53,3 +53,8 @@ print(list_1)
 
 list_2 += ["watermelon", "strawberry", "grape", "passion fruit"]
 print(list_2)
+
+# -------------------------
+print("")
+print(f"list_1 length is: {len(list_1)}")
+print(f"list_2 length is: {len(list_2)}")
