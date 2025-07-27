@@ -1,6 +1,11 @@
+import os
+#os.system("clear")
+os.system("cls")
+
 my_age: int = 18
 my_age_two: int = 17
 my_test_note: int = 7
+have_license: bool = True
 msg_legal_age: str = "You are of legal age"
 msg_not_legal_age: str = "You are not legal age"
 msg_congratulations: str = "Congratulations...!!!"
@@ -32,3 +37,17 @@ elif my_test_note >= 5:
     print(f"Fine ({my_test_note})")
 else:
     print(f"Not good. {msg_sorry} ({my_test_note})")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+if my_age_two >= 18 and have_license:
+    print("You can drive...!!!")
+else:
+    print(f"You can not drive. {msg_sorry}")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+if my_age >= 18 or have_license:
+    print("You can drive...!!!")
+else:
+    print(f"You can ot drive. {msg_sorry}")
