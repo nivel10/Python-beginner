@@ -11,6 +11,8 @@ msg_not_legal_age: str = "You are not legal age"
 msg_congratulations: str = "Congratulations...!!!"
 msg_sorry: str = "Sorry :/"
 msg_carrie_return: str = " "
+is_weekend: bool = False
+have_money: bool = True
 
 print(msg_carrie_return)
 
@@ -51,3 +53,30 @@ if my_age >= 18 or have_license:
     print("You can drive...!!!")
 else:
     print(f"You can ot drive. {msg_sorry}")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+if is_weekend:
+    print(f"Yes, is weekend. {msg_congratulations}")
+
+if not is_weekend:
+    print(f"Is not weekend. {msg_sorry}")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+if my_age_two >= 18:
+    if have_money:
+        print("You can go to the disco")
+    else:
+        print("You need save money, from that you can go to the disco")
+else:
+    print(f"You can't go to the disco. {msg_sorry}")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+if my_age < 18:
+    print(f"You can't go to the disco. {msg_sorry}")
+elif have_money:
+    print("You can go to the disco")
+else:
+    print("Better stay home")

@@ -10,3 +10,4 @@
 
 ## 02 - flow control
 * 01 - if
+* 02 - booleans
