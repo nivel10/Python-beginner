@@ -80,3 +80,25 @@ elif have_money:
     print("You can go to the disco")
 else:
     print("Better stay home")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+my_number: int = 5
+my_number_two: int = 0
+
+if my_number:
+    print(f"This nuber is not zero: {my_number}")
+
+if not my_number_two:
+    print(f"This number is zero: {my_number_two}")
+
+# ------------------------------------------------
+print(msg_carrie_return)
+current_name: str = "this is my name"
+current_name_two: str = ""
+
+if current_name:
+    print(f"Variable current_name is not empty: {current_name}")
+
+if not current_name_two:
+    print(f"Variable current_name_two is empty: {current_name_two}")
