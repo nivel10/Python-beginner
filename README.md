@@ -17,3 +17,4 @@
 ## 03 - loops
 * 01 - loop_while
 * 02 - loop_for
+* 03 - range
