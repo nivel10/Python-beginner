@@ -15,3 +15,5 @@
 * 04 - list_methods
 
 ## 03 - loops
+* 01 - loop_while
+* 02 - loop_for
