@@ -79,3 +79,12 @@ print(list_10)
 
 list_10.sort(key=str.lower)
 print(list_10)
+
+# -----------------------------------------------------
+print("")
+list_10.extend(['banana', 'banana'])
+print(list_10)
+print(list_10.count('banana'))
+
+print('apple' in list_10)
+print('peach' in list_10)
