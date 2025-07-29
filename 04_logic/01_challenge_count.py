@@ -5,6 +5,7 @@ os.system('cls')
 # --------------------------------------------------
 print("")
 def check_is_balanced(text: str = ''):
+    """This function count letters r and j from a text and return True if the quantity is same r on j else retur False"""
     text = text.lower()
 
     count_r: int = 0
