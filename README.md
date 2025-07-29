@@ -19,3 +19,6 @@
 * 02 - loop_for
 * 03 - range
 * 04 - functions
+
+## 04 - logic
+* 01 - challenge_count
