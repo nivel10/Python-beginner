@@ -24,3 +24,4 @@
 * 01 - challenge_count
 * 02 - challenge_jurassic_park
 * 03 - challenge_find_first_sum
+* 04 - dictionaries
