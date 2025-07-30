@@ -28,3 +28,4 @@
 
 ## 05 - regex
 * 01 - re
+* 02 - metachars

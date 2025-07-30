@@ -46,3 +46,22 @@ result_iter = re.finditer(pattern=pattern, string=text)
 
 for result in result_iter:
     print(f'pattern: {result.group()} - start: {result.start()} - end: {result.end()}')
+
+# --------------------------------------------
+print('')
+pattern = 'Ip.um'
+text = "lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem IPzum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem IpCuM passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Iptum."
+result_list = re.findall(pattern=pattern, string=text, flags=re.IGNORECASE)
+
+print(result_list)
+
+# --------------------------------------------
+print('')
+text = 'Hello world, Hello again...!!!'
+pattern = 'Hello'
+replacement: str = 'Good bye'
+
+text_replacement: str = re.sub(pattern=pattern, repl=replacement, string=text)
+
+print(text)
+print(text_replacement)
