@@ -25,3 +25,6 @@
 * 02 - challenge_jurassic_park
 * 03 - challenge_find_first_sum
 * 04 - dictionaries
+
+## 05 - regex
+* 01 - re
