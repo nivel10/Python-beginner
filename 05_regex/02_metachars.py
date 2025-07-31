@@ -119,3 +119,45 @@ if found:
     print(f'The phone number: {text} is valid')
 else:
     print(f'The phone number: {text} is not valid')
+
+# -----------------------------------
+print('')
+text = 'Hello world'
+pattern = r'world$'
+
+found = re.search(pattern=pattern, string=text)
+
+if found:
+    print('The chain is valid.')
+else:
+    print('The chain is not valid.')
+
+# -----------------------------------
+print('')
+text = 'nivel@gmail.com'
+pattern = r'@gmail.com$'
+
+found = re.search(pattern=pattern, string=text)
+
+if found:
+    print(f'The email is valid: {text}')
+else:
+    print(f'The email is not valid: {text}')
+
+# -----------------------------------
+print('')
+# text = 'myFile.txt password.txt another.pdf accounts.txt webSites.docx'
+text = 'casa cosa casas casado casada casa'
+pattern = r'\bc.sa\b'
+
+result_all = re.findall(pattern=pattern, string=text)
+
+print(result_all)
+
+# -----------------------------------
+print('')
+text = 'apple banana strawberry peach pear watermelon passion_fruit'
+pattern = r'peach|passion_fruit|\bp...|\b\w{6}\b'
+
+result_all = re.findall(pattern=pattern, string=text)
+print(result_all)
