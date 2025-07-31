@@ -33,3 +33,11 @@ pattern = r'[fmr]an'
 result_all = re.findall(pattern=pattern, string=text)
 
 print(result_all)
+
+# --------------------------------------------
+print('')
+text = 'Hello world.'
+pattern = r'[^aeiou]'
+result_all = re.findall(pattern=pattern, string=text)
+
+print(result_all)
