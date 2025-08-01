@@ -31,3 +31,8 @@
 * 02 - metachars
 * 03 - quantifiers
 * 04 - sets
+
+## 06 - reques_ai_dates
+* 01 - dates
+* 02 - request
+* 03 - classes
