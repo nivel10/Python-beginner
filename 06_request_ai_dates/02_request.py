@@ -103,7 +103,7 @@ def ai_geminis(api_key: str = '', prompt: str = '') -> object:
         print('')
         ai_obj: object = {
             'company': {
-                'deep_mint': {
+                'deep_mind': {
                     # 'api_token': '',
                     'models': {
                         'geminis': {
@@ -122,7 +122,7 @@ def ai_geminis(api_key: str = '', prompt: str = '') -> object:
 
         api_headers: object = {
             'Content-Type': 'application/json',
-            #'x-goog-api-key': f'{ai_obj['company']['deep_mint']['api_token']}',
+            #'x-goog-api-key': f'{ai_obj['company']['deep_mind']['api_token']}',
             'x-goog-api-key': api_key,
         }
 
@@ -139,9 +139,9 @@ def ai_geminis(api_key: str = '', prompt: str = '') -> object:
             ]
         }
 
-        api_url_geminis: str = f'{ai_obj['company']['deep_mint']['api_url']}'
-        api_url_geminis += f'/{ai_obj['company']['deep_mint']['models']['geminis']['flash-2.5']}'
-        api_url_geminis += f':{ai_obj['company']['deep_mint']['operation_type']['generate_content']}'
+        api_url_geminis: str = f'{ai_obj['company']['deep_mind']['api_url']}'
+        api_url_geminis += f'/{ai_obj['company']['deep_mind']['models']['geminis']['flash-2.5']}'
+        api_url_geminis += f':{ai_obj['company']['deep_mind']['operation_type']['generate_content']}'
 
         # print(api_url_geminis)
         # print(api_headers)
@@ -161,6 +161,7 @@ def ai_geminis(api_key: str = '', prompt: str = '') -> object:
 
 
 result_str: str = ''
+ai_response: str = ''
 ai_apy_key = os.environ.get('AI_GEMINIS_API')
 result: object = ai_geminis(
     api_key=ai_apy_key, 
@@ -172,9 +173,12 @@ result_str += f'ressult: {json.dumps(obj=result['result'], indent=2)}\n'
 
 if result:
     if result['status_code'] == 200:
-        # print(f'status code: {result['status_code']}')
-        # print(json.dumps(obj=result['result'], indent=2))
-        print(result_str)
+        # # print(f'status code: {result['status_code']}')
+        # # print(json.dumps(obj=result['result'], indent=2))
+        # print(result_str)
+        ai_response = result['result']['candidates'][0]['content']['parts'][0]['text']
+        print(ai_response)
+        print('')
     else:
         # print(f'status code: {result['status_code']}')
         # print(json.dumps(obj=result['result'], indent=2))
