@@ -2,6 +2,9 @@ import os
 # os.system('clear')
 os.system('cls')
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # ---------------------------------------
 # GET - with out packages
 print('')
@@ -90,59 +93,89 @@ except requests.exceptions.RequestException as e:
 
 
 # -------------------------------------------
-try:
-    print('')
-    # ai_api: str = 'AIzaSyAOHHhpd_cplvTJf-FlTIBzGfK31i33TxE'
-    ai_obj: object = {
-        'company': {
-            'deep_mint': {
-                'api_token': 'AIzaSyAOHHhpd_cplvTJf-FlTIBzGfK31i33TxE',
-                'models': {
-                    'geminis': {
-                        'flash-2.0': 'gemini-2.0-flash',
-                        'flash-2.5': 'gemini-2.5-flash'
+def ai_geminis(api_key: str = '', prompt: str = '') -> object:
+    result: object = {
+        'status_code': 200,
+        'result': {},
+    }
+
+    try:
+        print('')
+        ai_obj: object = {
+            'company': {
+                'deep_mint': {
+                    # 'api_token': '',
+                    'models': {
+                        'geminis': {
+                            'flash-2.0': 'gemini-2.0-flash',
+                            'flash-2.5': 'gemini-2.5-flash'
+                        },
                     },
-                },
-                'operation_type': {
-                    'generate_content': 'generateContent'
-                },
-                # 'api_url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
-                'api_url': 'https://generativelanguage.googleapis.com/v1beta/models',
-                'a':       'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
+                    'operation_type': {
+                        'generate_content': 'generateContent'
+                    },
+                    # 'api_url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
+                    'api_url': 'https://generativelanguage.googleapis.com/v1beta/models',
+                }
             }
         }
-    }
 
-    api_headers: object = {
-        #'Content-Type': 'application/json',
-        'Content-Type': 'application/json',
-        'x-goog-api-key': f'{ai_obj['company']['deep_mint']['api_token']}',
-    }
+        api_headers: object = {
+            'Content-Type': 'application/json',
+            #'x-goog-api-key': f'{ai_obj['company']['deep_mint']['api_token']}',
+            'x-goog-api-key': api_key,
+        }
 
-    # print(ai_obj['company']['deep_mint']['api_token'])
-    data_edit = {
-        'contents': [
-            {
-                'parts': [
-                    {
-                        'text': 'Hello, how are you today?'
-                    }   
-                ]
-            }
-        ]
-    }
+        data_edit = {
+            'contents': [
+                {
+                    'parts': [
+                        {
+                            # 'text': 'Hello, how are you today?'
+                            'text': prompt,
+                        }   
+                    ]
+                }
+            ]
+        }
 
-    # api_url_geminis: str = f'{ai_obj['company']['deep_mint']['api_url']}/{ai_obj['company']['deep_mint']['models']['geminis']['flash-2.5']}'
-    api_url_geminis: str = f'{ai_obj['company']['deep_mint']['api_url']}'
-    api_url_geminis += f'/{ai_obj['company']['deep_mint']['models']['geminis']['flash-2.5']}'
-    api_url_geminis += f':{ai_obj['company']['deep_mint']['operation_type']['generate_content']}'
+        api_url_geminis: str = f'{ai_obj['company']['deep_mint']['api_url']}'
+        api_url_geminis += f'/{ai_obj['company']['deep_mint']['models']['geminis']['flash-2.5']}'
+        api_url_geminis += f':{ai_obj['company']['deep_mint']['operation_type']['generate_content']}'
 
-    print(api_url_geminis)
-    print(api_headers)
-    print(data_edit)
+        # print(api_url_geminis)
+        # print(api_headers)
+        # print(data_edit)
 
-    response = requests.post(url=api_url_geminis, json=data_edit, headers=api_headers)
-    data = response.json()
-    print(data)
-except Exception as e:
-    print(f'Error: {e}')
+        response = requests.post(url=api_url_geminis, json=data_edit, headers=api_headers)
+        data = response.json()
+        #print(data)
+
+        result['result'] = data
+    except Exception as e:
+        # print(f'Error: {e}')
+        result['status_code'] = 400
+        result['result'] = e
+
+    return result
+
+
+result_str: str = ''
+ai_apy_key = os.environ.get('AI_GEMINIS_API')
+result: object = ai_geminis(
+    api_key=ai_apy_key, 
+    prompt='Hola, por favor hazme un poema super corto sobre python.'
+)
+
+result_str = f'status code: {result['status_code']}\n'
+result_str += f'ressult: {json.dumps(obj=result['result'], indent=2)}\n'
+
+if result:
+    if result['status_code'] == 200:
+        # print(f'status code: {result['status_code']}')
+        # print(json.dumps(obj=result['result'], indent=2))
+        print(result_str)
+    else:
+        # print(f'status code: {result['status_code']}')
+        # print(json.dumps(obj=result['result'], indent=2))
+        print(result_str)
