@@ -40,3 +40,4 @@
 ## 07 - scraping
 * 01 - basic
 * 02 - beautiful
+* 03 - seo_cli
