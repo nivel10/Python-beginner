@@ -41,3 +41,5 @@
 * 01 - basic
 * 02 - beautiful
 * 03 - seo_cli
+* 04 - playwright
+* 05 - playwright_scraping
