@@ -36,3 +36,7 @@
 * 01 - dates
 * 02 - request
 * 03 - classes
+
+## 07 - scraping
+* 01 - basic
+* 02 - beautiful
